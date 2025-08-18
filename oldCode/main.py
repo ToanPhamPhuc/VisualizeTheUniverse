@@ -4,11 +4,7 @@ from matplotlib.animation import FuncAnimation
 import time
 from config import *
 
-# flat event horizon disk
-def make_horizon(z_center):
-    pass
-
-# Black-hole 
+# Black-hole  def
 def make_blackhole(center_z):
     phi = np.linspace(0, PI, 30)
     theta_s = np.linspace(0, 2*PI, 30)
@@ -18,22 +14,21 @@ def make_blackhole(center_z):
     Zs = r_s * np.cos(PHI) + center_z
     return Xs, Ys, Zs
 
-#top black hole
+# black holes
 Xs_top, Ys_top, Zs_top = make_blackhole(Z_pos.max())
 Xs_bottom, Ys_bottom, Zs_bottom = make_blackhole(Z_neg.max())
 
 # Setup figure
 fig = plt.figure(figsize=(8, 8))
-ax = fig.add_subplot(111, projection='3d')
-
-# Plot both sheets (wormhole)
-wire1 = ax.plot_wireframe(X, Y, Z_pos, color='cyan', linewidth=0.5)
-wire2 = ax.plot_wireframe(X, Y, Z_neg, color='cyan', linewidth=0.5)
+ax = fig.add_subplot(111, projection='3d')\
 
 # Black holes at top and bottom
-blackhole_top = ax.plot_surface(Xs_top, Ys_top, Zs_top, color='black', shade=True)
-blackhole_bottom = ax.plot_surface(Xs_bottom, Ys_bottom, Zs_bottom, color='black', shade=True)
+blackHole_top = ax.plot_surface(Xs_top, Ys_top, Zs_top, color='black', shade=True, zorder=10)
+#blackHole_bottom = ax.plot_surface(Xs_bottom, Ys_bottom, Zs_bottom, color='black', shade=True)
 
+# Plot both sheets (wormhole)
+wire1 = ax.plot_wireframe(X, Y, Z_pos, color='cyan', linewidth=0.5, zorder=1)
+#wire2 = ax.plot_wireframe(X, Y, Z_neg, color='cyan', linewidth=0.5, zorder=1)
 
 # Style
 ax.set_facecolor('black')
@@ -41,7 +36,7 @@ ax.grid(False)
 ax.set_xticks([])
 ax.set_yticks([])
 ax.set_zticks([])
-ax.set_box_aspect([1, 1, 1])
+ax.set_box_aspect([1, 1, 0.5])
 
 # FPS tracking variables
 frame_count = 0
@@ -64,7 +59,7 @@ def update(frame):
         frame_count = 0
         last_time = current_time
     
-    return wire1, wire2, fps_text
+    return wire1, fps_text, #wire2
 
 # Run animation
 ani = FuncAnimation(fig, update, frames=np.arange(0, 360, 2), interval=30, blit=False, repeat=True)
