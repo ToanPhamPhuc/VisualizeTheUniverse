@@ -1,0 +1,5 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/dev/vs/Physics/VisualizeTheUniverse/media/videos/1080p60/partial_movie_files/SphereManifold/2544536139_3450197963_2890611643.mp4'
+file 'file:C:/dev/vs/Physics/VisualizeTheUniverse/media/videos/1080p60/partial_movie_files/SphereManifold/3395690346_3920511395_2424392327.mp4'
+file 'file:C:/dev/vs/Physics/VisualizeTheUniverse/media/videos/1080p60/partial_movie_files/SphereManifold/3044991227_2088577216_1085064419.mp4'
+file 'file:C:/dev/vs/Physics/VisualizeTheUniverse/media/videos/1080p60/partial_movie_files/SphereManifold/4113594008_2966079410_4046647870.mp4'
